@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=chartbrew
-      - MYSQL_USER=root
+      - MYSQL_USER=chartbrew
       - MYSQL_PASSWORD=${ADMIN_PASSWORD}
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
     ports:
@@ -27,7 +27,7 @@ services:
         - CB_DB_HOST=host.docker.internal
         - CB_DB_PORT=3306
         - CB_DB_NAME=chartbrew
-        - CB_DB_USERNAME=root
+        - CB_DB_USERNAME=chartbrew
         - CB_DB_PASSWORD=${ADMIN_PASSWORD}
         - 'REACT_APP_CLIENT_HOST=${BASE_URL}'
         - 'REACT_APP_API_HOST=${BASE_URL}:4019'
