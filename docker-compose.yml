@@ -5,8 +5,8 @@ services:
     image: razvanilin/chartbrew:latest
     restart: always
     ports:
-      - 172.17.0.1:4018:4018
-      - 172.17.0.1:4019:4019
+      - 172.17.0.1:4118:4018
+      - 172.17.0.1:4119:4019
     environment:
       CB_SECRET: ${ADMIN_PASSWORD}
       CB_API_HOST: ${BASE_URL}
