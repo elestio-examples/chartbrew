@@ -1,15 +1,23 @@
 version: "3"
 
 services:
+
+  chartbrew-gateway:
+    image: nginx:1.19-alpine
+    ports:
+      - "172.17.0.1:4118:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
   chartbrew:
     image: razvanilin/chartbrew:latest
     restart: always
-    ports:
-      - 172.17.0.1:4118:4018
-      - 172.17.0.1:4119:4019
+    # ports:
+    #   - 172.17.0.1:4118:4018
+    #   - 172.17.0.1:4119:4019
     environment:
       CB_SECRET: ${ADMIN_PASSWORD}
-      CB_API_HOST: ${BASE_URL}
+      CB_API_HOST: 0.0.0.0
       CB_API_PORT: 4019
       CB_RESTRICT_TEAMS: 0
       CB_DB_DIALECT: postgres
