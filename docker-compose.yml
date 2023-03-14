@@ -1,45 +1,18 @@
 version: '3.3'
 services:
-
-  nginx:
-    image: nginx
-    restart: always
-    ports:
-      - 172.17.0.1:6447:80
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      - MYSQL_DATABASE=chartbrew
-      - MYSQL_USER=chartbrew
-      - MYSQL_PASSWORD=${ADMIN_PASSWORD}
-      - MYSQL_ALLOW_EMPTY_PASSWORD=1
-    ports:
-      - 3306:3306
-    volumes:
-      - ./chartbrew-db:/var/lib/mysql
-
-  chartbrew:
-    image: razvanilin/chartbrew
-    restart: always
-    # ports:
-    #     - '172.17.0.1:4019:4019'
-    #     - '172.17.0.1:4018:4018'
-    environment:
-        - CB_SECRET=${ADMIN_PASSWORD}
-        - CB_API_HOST=172.17.0.1
-        - CB_API_PORT=4019
-        - CB_DB_HOST=host.docker.internal
-        - CB_DB_PORT=3306
-        - CB_DB_NAME=chartbrew
-        - CB_DB_USERNAME=chartbrew
-        - CB_DB_PASSWORD=${ADMIN_PASSWORD}
-        - REACT_APP_CLIENT_HOST=${BASE_URL}
-        - REACT_APP_API_HOST=${BASE_URL}:4019
-        - CB_MAIL_HOST=${SMTP_HOST}
-        - CB_MAIL_PORT=${SMTP_PORT}
-        - CB_MAIL_USER=
-        - CB_MAIL_PASS=
-        - CB_ADMIN_MAIL=${SMTP_FROM_EMAIL}
+    chartbrew:
+        image: razvanilin/chartbrew:latest-arm64
+        ports:
+            - '172.17.0.1:4019:4019'
+            - '172.17.0.1:4018:4018'
+        environment:
+            - CB_SECRET=enter_a_secure_string
+            - CB_API_HOST=0.0.0.0
+            - CB_API_PORT=4019
+            - CB_DB_HOST=host.docker.internal
+            - CB_DB_PORT=3306
+            - CB_DB_NAME=chartbrew
+            - CB_DB_USERNAME=root
+            - CB_DB_PASSWORD=password
+            - REACT_APP_CLIENT_HOST=${BASE_URL}:4018
+            - REACT_APP_API_HOST=${BASE_URL}:4019
