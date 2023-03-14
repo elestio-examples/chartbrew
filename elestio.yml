@@ -2,15 +2,15 @@ ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
     listeningPort: "443"
-    targetPort: "4018"
+    targetPort: "4118"
     targetIP: "172.17.0.1"
     public: true
     path: "/"
     isAuth: false
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
-    listeningPort: "4019"
-    targetPort: "4019"
+    listeningPort: "4219"
+    targetPort: "4119"
     targetIP: "172.17.0.1"
     public: true
     path: "/"
