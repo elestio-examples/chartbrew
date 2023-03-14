@@ -7,6 +7,14 @@ ports:
     public: true
     path: "/"
     isAuth: false
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "4019"
+    targetPort: "4019"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
 environments:
   - key: "ADMIN_PASSWORD"
     value: "random_password"
