@@ -9,7 +9,7 @@ services:
       - 172.17.0.1:4019:4019
     environment:
       CB_SECRET: ${ADMIN_PASSWORD}
-      CB_API_HOST: 172.17.0.1
+      CB_API_HOST: 0.0.0.0
       CB_API_PORT: 4019
       CB_RESTRICT_TEAMS: 0
       CB_DB_DIALECT: postgres
