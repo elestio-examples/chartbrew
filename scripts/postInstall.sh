@@ -55,7 +55,7 @@ echo "
 }" >> /opt/elestio/nginx/conf.d/${DOMAIN}.conf
 docker exec elestio-nginx nginx -s reload;
 
-sleep 250s;
+sleep 300s;
 
 curl https://${DOMAIN}/api/app/users \
   -H 'accept: application/json' \
