@@ -14,14 +14,18 @@ environments:
     value: "[EMAIL]"
   - key: "BASE_URL"
     value: "https://[CI_CD_DOMAIN]"
-  - key: "SMTP_HOST"
+  - key: "CB_MAIL_HOST"
     value: "172.17.0.1"
-  - key: "SMTP_PORT"
+  - key: "CB_MAIL_PORT"
     value: "25"
   - key: "SMTP_AUTH_STRATEGY"
     value: "NONE"
-  - key: "SMTP_FROM_EMAIL"
+  - key: "CB_ADMIN_MAIL"
     value: "[DOMAIN]@vm.elestio.app"
+  - key: DOMAIN
+    value: "[CI_CD_DOMAIN]"
+  - key: "PIPELINE_NAME"
+    value: "[PIPELINE_NAME]"
 
 config:
   runTime: "dockerCompose"
