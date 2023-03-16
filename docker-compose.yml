@@ -24,7 +24,7 @@ services:
       CB_API_PORT: 4019
       CB_RESTRICT_TEAMS: 0
       CB_DB_DIALECT: mysql
-      CB_DB_HOST: chartbrew-db
+      CB_DB_HOST: db
       CB_DB_NAME: chartbrew
       CB_DB_USERNAME: chartbrew
       CB_DB_PASSWORD: ${ADMIN_PASSWORD}
@@ -35,7 +35,7 @@ services:
       CB_MAIL_PORT: ${CB_MAIL_PORT}
       CB_ADMIN_MAIL: ${CB_ADMIN_MAIL}
 
-  chartbrew-db:
+  db:
     image: mysql:5.7
     restart: always
     environment:
@@ -46,4 +46,4 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./chartbrew-db:/var/lib/mysql
+      - ./db:/var/lib/mysql
