@@ -130,7 +130,7 @@ location /api/ {
 docker exec elestio-nginx nginx -s reload;
 
 
-sleep 350s;
+sleep 800s;
 
 
 curl https://${DOMAIN}/api/app/users \
