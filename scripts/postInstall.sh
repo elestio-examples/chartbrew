@@ -2,7 +2,7 @@
 set -o allexport; source .env; set +o allexport;
 
 # #wait until the server is ready
-sleep 20s;
+sleep 250s;
 
 curl http://172.17.0.1:4019/user \
   -H 'accept: application/json' \
