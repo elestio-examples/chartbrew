@@ -18,8 +18,8 @@ environments:
     value: "172.17.0.1"
   - key: "CB_MAIL_PORT"
     value: "25"
-  - key: "SMTP_AUTH_STRATEGY"
-    value: "NONE"
+  - key: "CB_MAIL_SECURE"
+    value: "false"
   - key: "CB_ADMIN_MAIL"
     value: "[DOMAIN]@vm.elestio.app"
   - key: DOMAIN

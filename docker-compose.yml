@@ -24,6 +24,10 @@ services:
       CB_DB_PORT: 3306
       REACT_APP_CLIENT_HOST: ${BASE_URL}
       REACT_APP_API_HOST: ${BASE_URL}/api
+      CB_MAIL_HOST: ${CB_MAIL_HOST}
+      CB_MAIL_PORT: ${CB_MAIL_PORT}
+      CB_MAIL_SECURE: ${CB_MAIL_SECURE}
+      CB_ADMIN_MAIL: ${CB_ADMIN_MAIL}
 
   chartbrew-db:
     image: mysql:5.7
