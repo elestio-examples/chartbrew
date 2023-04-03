@@ -26,6 +26,8 @@ environments:
     value: "[CI_CD_DOMAIN]"
   - key: "PIPELINE_NAME"
     value: "[PIPELINE_NAME]"
+  - key: "CB_RESTRICT_SIGNUP"
+    value: "0"
 
 config:
   runTime: "dockerCompose"

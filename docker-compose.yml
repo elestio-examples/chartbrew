@@ -28,6 +28,7 @@ services:
       CB_MAIL_PORT: ${CB_MAIL_PORT}
       CB_MAIL_SECURE: ${CB_MAIL_SECURE}
       CB_ADMIN_MAIL: ${CB_ADMIN_MAIL}
+      CB_RESTRICT_SIGNUP: ${CB_RESTRICT_SIGNUP}
 
   chartbrew-db:
     image: mysql:5.7
