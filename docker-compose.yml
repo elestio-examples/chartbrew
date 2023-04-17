@@ -19,7 +19,7 @@ services:
       CB_DB_DIALECT: mysql
       CB_DB_HOST: chartbrew-db
       CB_DB_NAME: chartbrew
-      CB_DB_USERNAME: root
+      CB_DB_USERNAME: chartbrew
       CB_DB_PASSWORD: ${ADMIN_PASSWORD}
       CB_DB_PORT: 3306
       REACT_APP_CLIENT_HOST: ${BASE_URL}
@@ -33,10 +33,10 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: chartbrew
-      MYSQL_USER: root
+      MYSQL_USER: chartbrew
       MYSQL_PASSWORD: ${ADMIN_PASSWORD}
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     ports:
-      - 172.17.0.1:3306:3306
+      - 3306:3306
     volumes:
       - ./chartbrew-db:/var/lib/mysql
