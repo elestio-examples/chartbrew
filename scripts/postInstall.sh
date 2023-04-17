@@ -4,7 +4,7 @@ set -o allexport; source .env; set +o allexport;
 # #wait until the server is ready
 
 echo "Waiting for software to be ready ..."
-sleep 250s;
+sleep 400s;
 
 curl http://172.17.0.1:4019/user \
   -H 'accept: application/json' \
