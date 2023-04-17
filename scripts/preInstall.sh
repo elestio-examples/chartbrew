@@ -18,10 +18,6 @@ module.exports = {
     host: "$CB_MAIL_HOST",
     port: "$CB_MAIL_PORT",
     secure: "$CB_MAIL_SECURE",
-    auth: {
-      user: process.env.CB_MAIL_USER,
-      pass: process.env.CB_MAIL_PASS,
-    },
   },
   google: {
     client_id: process.env.CB_GOOGLE_CLIENT_ID,
