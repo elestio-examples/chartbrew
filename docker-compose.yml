@@ -25,7 +25,7 @@ services:
       REACT_APP_CLIENT_HOST: ${BASE_URL}
       REACT_APP_API_HOST: ${BASE_URL}/api
     volumes:
-      - ./settings.js:/server/settings.js
+      - ./settings.js:/code/server/settings.js
 
 
   chartbrew-db:
