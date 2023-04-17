@@ -18,6 +18,11 @@ module.exports = {
     host: "$CB_MAIL_HOST",
     port: "$CB_MAIL_PORT",
     secure: "$CB_MAIL_SECURE",
+    auth: {
+      user: "",
+      pass: "",
+    },
+    tls: {rejectUnauthorized: false},
   },
   google: {
     client_id: process.env.CB_GOOGLE_CLIENT_ID,
