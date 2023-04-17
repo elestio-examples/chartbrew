@@ -24,6 +24,8 @@ services:
       CB_DB_PORT: 3306
       REACT_APP_CLIENT_HOST: ${BASE_URL}
       REACT_APP_API_HOST: ${BASE_URL}/api
+    volumes:
+      - ./settings.js:/server/settings.js
 
 
   chartbrew-db:
