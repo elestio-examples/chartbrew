@@ -29,8 +29,8 @@ module.exports = {
     client_secret: process.env.CB_GOOGLE_CLIENT_SECRET,
     redirect_url: "/google-auth",
   },
-  teamRestricted: "false",
-  signupRestricted: "false",
+  teamRestricted: false,
+  signupRestricted: false,
   chartbrewMainAPI: "https://api.chartbrew.com",
 };
 
