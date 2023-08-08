@@ -1,9 +1,8 @@
 version: "3"
 
 services:
-
   chartbrew:
-    image: razvanilin/chartbrew:latest
+    image: elestio4test/chartbrew:latest
     restart: always
     ports:
       - 172.17.0.1:4118:4018
@@ -27,9 +26,8 @@ services:
     volumes:
       - ./settings.js:/code/server/settings.js
 
-
   chartbrew-db:
-    image: mysql:5.7
+    image: elestio/mysql:8
     restart: always
     environment:
       MYSQL_DATABASE: chartbrew
