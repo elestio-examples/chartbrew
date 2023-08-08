@@ -15,26 +15,54 @@ services:
       CB_API_HOST: 0.0.0.0
       CB_API_PORT: 4019
       CB_RESTRICT_TEAMS: 0
-      CB_DB_DIALECT: mysql
+      CB_DB_DIALECT: postgres
       CB_DB_HOST: chartbrew-db
       CB_DB_NAME: chartbrew
       CB_DB_USERNAME: chartbrew
       CB_DB_PASSWORD: ${ADMIN_PASSWORD}
-      CB_DB_PORT: 3306
+      CB_DB_PORT: 5432
       REACT_APP_CLIENT_HOST: ${BASE_URL}
       REACT_APP_API_HOST: ${BASE_URL}/api
-    volumes:
-      - ./settings.js:/code/server/settings.js
+      CB_MAIL_HOST: ${CB_MAIL_HOST}
+      CB_MAIL_USER: ""
+      CB_MAIL_PASS: ""
+      CB_MAIL_PORT: ${CB_MAIL_PORT}
+      CB_MAIL_SECURE: "false"
+      CB_ADMIN_MAIL: ${CB_ADMIN_MAIL}
+    # volumes:
+    #   - ./settings.js:/code/server/settings.js
 
   chartbrew-db:
-    image: elestio/mysql:latest
+    image: elestio/postgres:latest
     restart: always
-    environment:
-      MYSQL_DATABASE: chartbrew
-      MYSQL_USER: chartbrew
-      MYSQL_PASSWORD: ${ADMIN_PASSWORD}
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-    ports:
-      - 3306:3306
     volumes:
-      - ./chartbrew-db:/var/lib/mysql
+      - ./pgdata:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=chartbrew
+      - POSTGRES_USER=chartbrew
+      - POSTGRES_PASSWORD=${ADMIN_PASSWORD}
+    ports:
+      - 172.17.0.1:5432:5432
+    # image: elestio/mysql:latest
+    # restart: always
+    # environment:
+    #   MYSQL_DATABASE: chartbrew
+    #   MYSQL_USER: chartbrew
+    #   MYSQL_PASSWORD: ${ADMIN_PASSWORD}
+    #   MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    # ports:
+    #   - 3306:3306
+    # volumes:
+    #   - ./chartbrew-db:/var/lib/mysql
+
+    pgadmin4:
+      image: dpage/pgadmin4:latest
+      restart: always
+      environment:
+        PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL}
+        PGADMIN_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
+        PGADMIN_LISTEN_PORT: 8080
+      ports:
+        - "172.17.0.1:8085:8080"
+      volumes:
+        - ./servers.json:/pgadmin4/servers.json
