@@ -27,7 +27,7 @@ services:
       - ./settings.js:/code/server/settings.js
 
   chartbrew-db:
-    image: elestio/mysql:8
+    image: elestio/mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: chartbrew
