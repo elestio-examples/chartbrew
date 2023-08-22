@@ -33,7 +33,7 @@ services:
     #   - ./settings.js:/code/server/settings.js
 
   chartbrew-db:
-    image: elestio/postgres:latest
+    image: elestio/postgres:15
     restart: always
     volumes:
       - ./pgdata:/var/lib/postgresql/data/
