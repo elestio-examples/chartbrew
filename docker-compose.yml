@@ -2,7 +2,7 @@ version: "3"
 
 services:
   chartbrew:
-    image: elestio4test/chartbrew:latest
+    image: razvanilin/chartbrew:latest
     restart: always
     ports:
       - 172.17.0.1:4118:4018
