@@ -5,7 +5,7 @@ set -o allexport; source .env; set +o allexport;
 
 echo "Waiting for software to be ready ..."
 echo "It will take a bit of time ..."
-sleep 90s;
+sleep 500s;
 
 
 echo "  
@@ -129,9 +129,12 @@ docker exec elestio-nginx nginx -s reload;
 
 echo "Waiting for software to be ready ..."
 
+docker-compose down;
+docker-compose up -d;
+
 sleep 10s;
 
-curl http://172.17.0.1:4019/user \
+curl https://${DOMAIN}/api/user \
   -H 'accept: application/json' \
   -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6' \
   -H 'content-type: application/json' \

@@ -6,22 +6,6 @@ set -o allexport; source .env; set +o allexport;
 # mkdir -p ./data
 # chown -R 1000:1000 ./data
 
-cat <<EOT > ./servers.json
-{
-    "Servers": {
-        "1": {
-            "Name": "local",
-            "Group": "Servers",
-            "Host": "172.17.0.1",
-            "Port": 5432,
-            "MaintenanceDB": "postgres",
-            "SSLMode": "prefer",
-            "Username": "postgres",
-            "PassFile": "/pgpass"
-        }
-    }
-}
-EOT
 
 cat <<EOT > ./settings.js
 
@@ -30,16 +14,15 @@ module.exports = {
   secret: process.env.CB_SECRET,
   client: process.env.REACT_APP_CLIENT_HOST,
   api: process.env.CB_API_HOST,
-  adminMail: "$ADMIN_EMAIL",
+  adminMail: "$CB_ADMIN_MAIL",
   mailSettings: {
     host: "$CB_MAIL_HOST",
     port: "$CB_MAIL_PORT",
-    secure: "$CB_MAIL_SECURE",
+    secure: $CB_MAIL_SECURE,
     auth: {
       user: "",
       pass: "",
     },
-    tls: {rejectUnauthorized: false},
   },
   google: {
     client_id: process.env.CB_GOOGLE_CLIENT_ID,
