@@ -5,7 +5,15 @@ set -o allexport; source .env; set +o allexport;
 
 echo "Waiting for software to be ready ..."
 echo "It will take a bit of time ..."
-sleep 500s;
+sleep 100s;
+echo "Working ..."
+sleep 100s;
+echo "Still working ..."
+sleep 100s;
+echo "Almost done ..."
+sleep 100s;
+echo "A few more seconds ..."
+sleep 100s;
 
 
 echo "  
@@ -127,7 +135,7 @@ location /api/ {
 }" > /opt/elestio/nginx/conf.d/${DOMAIN}.conf
 docker exec elestio-nginx nginx -s reload;
 
-echo "Waiting for software to be ready ..."
+echo "Restarting ..."
 
 docker-compose down;
 docker-compose up -d;
