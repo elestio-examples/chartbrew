@@ -3,15 +3,6 @@ set -o allexport; source .env; set +o allexport;
 
 # #wait until the server is ready
 
-echo "Waiting for software to be ready ..."
-echo "It will take a bit of time ..."
-sleep 200s;
-echo "Working ..."
-sleep 200s;
-echo "Almost done ..."
-sleep 100s;
-
-
 echo "  
 map \$http_upgrade \$connection_upgrade {
   default upgrade;
@@ -132,6 +123,17 @@ location /api/ {
 docker exec elestio-nginx nginx -s reload;
 
 echo "Restarting ..."
+
+echo "Waiting for software to be ready ..."
+echo "It will take a bit of time ..."
+sleep 200s;
+echo "Working ..."
+sleep 200s;
+echo "Almost done ..."
+sleep 100s;
+
+
+
 
 docker-compose down;
 docker-compose up -d;
