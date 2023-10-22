@@ -16,7 +16,7 @@ echo "
 map \$http_upgrade \$connection_upgrade {
   default upgrade;
   '' close;
-}
+} 
 
 proxy_cache_path /tmp/${PIPELINE_NAME} levels=1:2 keys_zone=${PIPELINE_NAME}:10m max_size=1g inactive=60m use_temp_path=off;
 limit_req_zone \$binary_remote_addr\$http_x_forwarded_for zone=${PIPELINE_NAME}e:16m rate=500r/m;
