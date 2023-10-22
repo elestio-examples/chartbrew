@@ -3,6 +3,8 @@ set -o allexport; source .env; set +o allexport;
 
 # #wait until the server is ready
 
+sleep 30s;
+
 echo "  
 map \$http_upgrade \$connection_upgrade {
   default upgrade;
@@ -126,19 +128,16 @@ echo "Restarting ..."
 
 echo "Waiting for software to be ready ..."
 echo "It will take a bit of time ..."
-sleep 200s;
-echo "Working ..."
-sleep 200s;
-echo "Almost done ..."
-sleep 100s;
-
+sleep 500s;
 
 
 
 docker-compose down;
 docker-compose up -d;
 
-sleep 10s;
+sleep 30s;
+
+echo "Registering..."
 
 curl https://${DOMAIN}/api/user \
   -H 'accept: application/json' \
