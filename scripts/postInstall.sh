@@ -3,7 +3,18 @@ set -o allexport; source .env; set +o allexport;
 
 # #wait until the server is ready
 
-sleep 90s;
+echo "Waiting for software to be ready ..."
+echo "It will take a bit of time ..."
+sleep 100s;
+echo "Working ..."
+sleep 100s;
+echo "Still working ..."
+sleep 100s;
+echo "Almost done ..."
+sleep 100s;
+echo "A few more seconds ..."
+sleep 100s;
+
 
 echo "  
 map \$http_upgrade \$connection_upgrade {
@@ -126,9 +137,6 @@ docker exec elestio-nginx nginx -s reload;
 
 echo "Restarting ..."
 
-echo "Waiting for software to be ready ..."
-echo "It will take a bit of time ..."
-sleep 500s;
 
 
 
@@ -146,3 +154,24 @@ curl https://${DOMAIN}/api/user \
   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36' \
   --data-raw '{"name":"root","email":"'${ADMIN_EMAIL}'","password":"'${ADMIN_PASSWORD}'"}' \
   --compressed
+
+cat << EOT >> ./scripts/postUpdate.sh
+set -o allexport; source .env; set +o allexport;
+
+docker-compose down;
+rm -r ./storage/dist
+docker-compose up -d
+
+
+echo "Waiting for software to be ready ..."
+echo "It will take a bit of time ..."
+sleep 100s;
+echo "Working ..."
+sleep 100s;
+echo "Still working ..."
+sleep 100s;
+echo "Almost done ..."
+sleep 100s;
+echo "A few more seconds ..."
+sleep 100s;"> ./scripts/postUpdate.sh
+EOT
