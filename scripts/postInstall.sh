@@ -3,7 +3,7 @@ set -o allexport; source .env; set +o allexport;
 
 # #wait until the server is ready
 
-sleep 30s;
+sleep 90s;
 
 echo "  
 map \$http_upgrade \$connection_upgrade {
