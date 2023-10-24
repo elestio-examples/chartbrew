@@ -7,23 +7,6 @@ ports:
     public: true
     path: "/"
     isAuth: false
-  - protocol: "HTTPS"
-    targetProtocol: "HTTP"
-    listeningPort: "61528"
-    targetPort: "42140"
-    targetIP: "172.17.0.1"
-    public: true
-    path: "/"
-    isAuth: true
-    login: "chartbrew"
-    password: "random_password"
-    loginTitle: "PHPMyAdmin"
-  - protocol: "TCP"
-    targetProtocol: "TCP"
-    listeningPort: "47807"
-    targetIP: "172.17.0.1"
-    targetPort: "20064"
-    public: true
 environments:
   - key: "ADMIN_PASSWORD"
     value: "random_password"
