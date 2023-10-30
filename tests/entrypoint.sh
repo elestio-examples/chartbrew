@@ -8,7 +8,7 @@ cd server
 NODE_ENV=production nohup node index.js &
 
 cd ../client
-# mkdir -p dist
+mkdir -p dist
 
 if [ -z "$(ls -A dist)" ]; then
   echo "Building the UI. This might take a couple of minutes..."
