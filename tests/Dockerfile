@@ -8,8 +8,6 @@ COPY . .
 RUN cd client && npm install && cd ../server && npm install
 RUN npm run prepareSettings
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
 RUN echo -e "\nBuilding the UI. This might take a couple of minutes...\n"
 RUN cd client && npm run build && mkdir -p dist && cp -rf build/* dist/
