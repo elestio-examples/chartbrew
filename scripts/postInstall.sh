@@ -144,6 +144,12 @@ docker-compose down;
 docker-compose up -d;
 
 sleep 30s;
+echo "Restarting ..."
+
+docker-compose down;
+docker-compose up -d;
+
+sleep 30s;
 
 echo "Registering..."
 
