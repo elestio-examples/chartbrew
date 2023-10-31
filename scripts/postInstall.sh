@@ -8,6 +8,9 @@ echo "It will take a bit of time ..."
 sleep 100s;
 echo "Working ..."
 sleep 100s;
+docker-compose down;
+rm -r ./storage/dist
+docker-compose up;
 echo "Still working ..."
 sleep 100s;
 echo "Almost done ..."
