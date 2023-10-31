@@ -5,11 +5,11 @@ set -o allexport; source .env; set +o allexport;
 
 echo "Waiting for software to be ready ..."
 echo "It will take a bit of time ..."
-sleep 200s;
+sleep 100s;
 echo "Working ..."
-sleep 200s;
+sleep 100s;
 echo "Still working ..."
-sleep 200s;
+sleep 100s;
 echo "Almost done ..."
 sleep 100s;
 echo "A few more seconds ..."
