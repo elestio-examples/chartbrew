@@ -10,7 +10,7 @@ echo "Working ..."
 sleep 100s;
 docker-compose down;
 rm -r ./storage/dist
-docker-compose up;
+docker-compose up -d;
 echo "Still working ..."
 sleep 100s;
 echo "Almost done ..."
