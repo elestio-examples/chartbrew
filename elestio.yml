@@ -7,14 +7,6 @@ ports:
     public: true
     path: "/"
     isAuth: false
-  - protocol: "HTTPS"
-    targetProtocol: "HTTP"
-    listeningPort: "6943"
-    targetPort: "4119"
-    targetIP: "172.17.0.1"
-    public: true
-    path: "/"
-    isAuth: false
 environments:
   - key: "SOFTWARE_VERSION_TAG"
     value: "latest"

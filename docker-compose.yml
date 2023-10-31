@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - 172.17.0.1:4118:4018
-      - 172.17.0.1:4119:4019
+      - 172.17.0.1:4019:4019
     expose:
       - 4018
       - 4019
@@ -22,7 +22,7 @@ services:
       CB_DB_PASSWORD: ${ADMIN_PASSWORD}
       CB_DB_PORT: 3306
       REACT_APP_CLIENT_HOST: ${BASE_URL}
-      REACT_APP_API_HOST: ${BASE_URL}:6943
+      REACT_APP_API_HOST: ${BASE_URL}/api
     volumes:
       - ./settings.js:/code/server/settings.js
       - ./storage/dist:/code/client/dist
